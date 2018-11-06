@@ -1,8 +1,9 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone',
-], function ($, _, Backbone) {
+    'backbone',
+    'views/list'
+], function ($, _, Backbone,ListView) {
     var AppView = Backbone.View.extend({
         el: $('.main__container'),
         initialize: function() {
