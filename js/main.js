@@ -1,3 +1,4 @@
+// require confing
 require.config({
 	shim: {
 		underscore: {
@@ -9,11 +10,19 @@ require.config({
 				'jquery'
 			],
 			exports: 'Backbone'
-		},
+        },
 	},
 	paths: {
-		jquery: '../dependecies/jquery-3.3.1',
-		underscore: '../dependecies/underscore',
-		backbone: '../dependecies/backbone',
+		jquery: '../dependencies/jquery-3.3.1',
+		underscore: '../dependencies/underscore',
+		backbone: '../dependencies/backbone',
 	}
+});
+
+require([
+	'backbone',
+	'views/app',
+], function (Backbone, AppView) {
+    Backbone.history.start();
+	new AppView();
 });
