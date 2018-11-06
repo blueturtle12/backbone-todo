@@ -9,7 +9,7 @@ define([
             time: Date.now()
 		},
 
-		toggle: function () {
+		complete: function () {
 			this.save({
 				completed: !this.get('completed')
 			});
