@@ -2,27 +2,38 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Backbone Todo</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Backbone Todo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1 class="main__title">ToDo App</h1>
-        <div class="main__container">
-            <input type="text" name="newEntry">
-            <button class="main__submit">Submit</button>
-            <div class="main__display">
-            </div> 
-        </div>
+    <h1 class="main__title">ToDo App</h1>
+    <div class="main__container">
+        <input type="text" name="newEntry" class="main__input">
+        <button class="main__submit">Submit</button>
+        <div class="main__display"></div>
+    </div>
 
-        <script data-main="js/main" src="dependencies/require.js"></script>
-    </body>
+    <script data-main="js/main" src="dependencies/require.js"></script>
+    <script class="todoTemplate" type="text/html">
+        <div class="display__todo">
+                <input type="checkbox" name="complete">
+                <span class="todo__title"><%= title %></span>
+                <span class="todo__time"><%= time %></span>
+        </div>
+    </script>
+</body>
+
 </html>
