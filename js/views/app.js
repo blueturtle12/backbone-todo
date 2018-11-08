@@ -5,29 +5,30 @@ define([
     'views/entry',
     'collections/list',
     'models/todo',
-    'views/list'
-], function ($, _, Backbone,EntryView,List,Todo,ListView) {
+], function ($, _, Backbone,EntryView,List,Todo) {
+    //var newList = new List();
     var AppView = Backbone.View.extend({
-        collection: List,
+        collection: new List(),
         el: $('.main__container'),
+        initialize: function () {
+           this.listenTo(this.collection, 'add', this.render);
+        },
         events: {
             "click .main__submit": "onSubmit"
         },
         onSubmit: function() {
             var toDo = $('.main__input').val();
             var toDoDate = $('.main__date').val();
-            console.log(toDoDate);
             var item = new Todo({
                 title: toDo,
                 time: toDoDate
             });
-            //List.add(item);
-            var view = new ListView({collection: new List()});
-            view.collection.add(item);
+            this.collection.add(item);
+            this.$(".main__display").append(new EntryView({model:item}).render().el);
+            console.log(this.collection.toArray());
             $('.main__input').val('');
         },
         render: function() {
-           return this
         }
     });
     return AppView;
