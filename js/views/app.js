@@ -14,9 +14,12 @@ define([
             "click .main__submit": "onSubmit"
         },
         onSubmit: function() {
-		    var toDo = $('.main__input').val();
+            var toDo = $('.main__input').val();
+            var toDoDate = $('.main__date').val();
+            console.log(toDoDate);
             var item = new Todo({
-                title: toDo
+                title: toDo,
+                time: toDoDate
             });
             //List.add(item);
             var view = new ListView({collection: new List()});

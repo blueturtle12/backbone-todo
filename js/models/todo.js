@@ -7,7 +7,7 @@ define([
 		defaults: {
 			title: '',
             completed: false,
-            time: newDate.toLocaleDateString("en-US")
+            time: ''
 		},
 	});
 
