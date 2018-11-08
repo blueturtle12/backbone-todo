@@ -20,6 +20,13 @@ define([
             var toDo = $('.main__input').val();
             var toDoDisc = $('.main__discription').val();
             var toDoTime = $('.main__time').val();
+            // var x = setInterval(function() {
+            //     i++
+            //     if(i === parseInt(toDoTime)){
+            //         clearInterval(x);
+            //     }
+            //     return i;
+            // },1000)
             var item = new Todo({
                 title: toDo,
                 discription: toDoDisc,
@@ -29,6 +36,7 @@ define([
             this.$(".main__display").append(new EntryView({model:item}).render().el);
             console.log(this.collection.toArray());
             $('.main__input').val('');
+            var i = 0;
         },
         render: function() {
         }
