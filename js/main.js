@@ -25,11 +25,8 @@ require([
 	'underscore',
 	'backbone',
 	'views/app',
-	'views/entry',
-    'collections/list',
-    'models/todo'
-], function ($, _,Backbone, AppView,List,Todo) {
-	var mainView = new AppView();
+], function ($, _,Backbone, AppView) {
+	new AppView();
 	//AppView.render();
 	
 });

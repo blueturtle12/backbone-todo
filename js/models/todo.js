@@ -9,12 +9,6 @@ define([
             completed: false,
             time: newDate.toLocaleDateString("en-US")
 		},
-
-		complete: function () {
-			this.save({
-				completed: !this.get('completed')
-			});
-		}
 	});
 
 	return Todo;
