@@ -18,10 +18,12 @@ define([
         },
         onSubmit: function() {
             var toDo = $('.main__input').val();
-            var toDoDate = $('.main__date').val();
+            var toDoDisc = $('.main__discription').val();
+            var toDoTime = $('.main__time').val();
             var item = new Todo({
                 title: toDo,
-                time: toDoDate
+                discription: toDoDisc,
+                time: toDoTime
             });
             this.collection.add(item);
             this.$(".main__display").append(new EntryView({model:item}).render().el);

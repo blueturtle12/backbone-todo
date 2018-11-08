@@ -6,6 +6,7 @@ define([
 	var Todo = Backbone.Model.extend({
 		defaults: {
 			title: '',
+			discription: '',
             completed: false,
             time: ''
 		},
