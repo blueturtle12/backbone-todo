@@ -8,21 +8,22 @@ define([
         model: Todo,
         initialize: function() {
             this.template = _.template($(".todoTemplate").html());
-            console.log(this.model.attributes.time);
-            //this.model.attributes.time = 10;
-            //var x = this.model.attributes.time;
+            this.model.attributes.time = this.model.attributes.time * 60;
+            var time = this.model.attributes.time + 1;
             var self = this;
-            var x = setInterval(function() {
-                    i = self.model.attributes.time;
-                	i--
-                    self.model.attributes.time = i;
+            var timerLoop = setInterval(function x() {
+                    time--
+                    var minutes = Math.floor(time/60);
+                    var seconds = time%60;
+                    self.model.attributes.time = minutes + ':' + seconds;
                     self.render();
-                    console.log(self.model.attributes.time);
-                    if(self.model.attributes.time === 0){
-                        clearInterval(x);
-                }
-                },1000)
+                    if(time === 0){
+                        clearInterval(timerLoop);
+                    }
+                return x;
+            }(),1000);
         },
+
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
