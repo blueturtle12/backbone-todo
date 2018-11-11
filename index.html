@@ -12,14 +12,14 @@
     <title>Backbone Todo</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <h1 class="main__title">ToDo App</h1>
+    <h1 class="main__title">Backbone Todo</h1>
     <div class="main__container">
         <input type="text" name="newEntry" class="main__input" value="title">
         <input type="text" name="disc" class="main__discription" value="discription">
@@ -34,7 +34,8 @@
                 <input type="checkbox" name="complete">
                 <span class="todo__title"><%= title %></span>
                 <span class="todo__discription"><%= discription %></span>
-                <span class="todo__time"><%= time %></span>
+                <span class="todo__time"><%= minutes %>:<%= seconds %></span>
+                <button class="todo__btn">Start</button>
         </div>
     </script>
 </body>
