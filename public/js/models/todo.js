@@ -6,7 +6,8 @@ define(["underscore", "backbone"], function(_, Backbone) {
 			completed: false,
 			time: "",
 			minutes: "",
-			seconds: ""
+			seconds: "",
+			buttonStatus: "start"
 		}
 	});
 
