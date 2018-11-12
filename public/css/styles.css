@@ -1,0 +1,13 @@
+.main__title {
+    text-align: center;
+    font-size: 3em;
+}
+.main__container {
+    width: 600px;
+    margin: 0 auto;
+    /*text-align: center;*/
+}
+
+.display__todo {
+    margin-top: 1em;
+}

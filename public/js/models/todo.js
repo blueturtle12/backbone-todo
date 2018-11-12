@@ -7,7 +7,9 @@ define([
 			title: '',
 			description: '',
             completed: false,
-            time: ''
+			time: '',
+			minutes: '',
+			seconds: ''
 		},
 		// interval: setInterval(function() {
 		// 	i++
