@@ -8,11 +8,11 @@ define(["jquery", "underscore", "backbone", "models/todo"], function(
 		model: Todo,
 		initialize: function() {
 			this.template = _.template($(".todoTemplate").html());
-			this.model.attributes.time = this.model.attributes.time * 60;
-			this.model.attributes.minutes = Math.floor(
-				this.model.attributes.time / 60
-			);
-			this.model.attributes.seconds = this.model.attributes.time % 60;
+			console.log(this.model.get("time"));
+			var timeToSeconds = this.model.get("time") * 60;
+			this.model.set({ time: timeToSeconds });
+			this.model.set({ minutes: Math.floor(timeToSeconds / 60) });
+			this.model.set({ seconds: timeToSeconds % 60 });
 		},
 
 		events: {
@@ -20,13 +20,13 @@ define(["jquery", "underscore", "backbone", "models/todo"], function(
 		},
 
 		onStart: function() {
-			var time = this.model.attributes.time + 1;
+			var time = this.model.get("time") + 1;
 			var self = this;
 			var timerLoop = setInterval(
 				(function x() {
 					time--;
-					self.model.attributes.minutes = Math.floor(time / 60);
-					self.model.attributes.seconds = time % 60;
+					self.model.set({ minutes: Math.floor(time / 60) });
+					self.model.set({ seconds: time % 60 });
 					self.render();
 					if (time === 0) {
 						clearInterval(timerLoop);
