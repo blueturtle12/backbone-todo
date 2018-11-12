@@ -22,20 +22,30 @@
     <h1 class="main__title">Backbone Todo</h1>
     <div class="main__container">
         <input type="text" name="newEntry" class="main__input" value="title">
-        <input type="text" name="disc" class="main__discription" value="discription">
+        <input type="text" name="disc" class="main__description" value="description">
         <input type="number" class="main__time" name="time-pick">
         <button class="main__submit">Submit</button>
         <div class="main__display"></div>
     </div>
 
-    <script data-main="js/main" src="dependencies/require.js"></script>
+    <script type="text/javascript" src="dependencies/jquery-3.3.1.js"></script>
+    <script  type="text/javascript" src="dependencies/underscore.js"></script>
+    <script  type="text/javascript" src="dependencies/backbone.js"></script>
+    <script  type="text/javascript" src="dependencies/backbone.localStorage.js"></script>
+    <script  data-main="js/main" src="dependencies/require.js"></script>
+    
     <script class="todoTemplate" type="text/html">
         <div class="display__todo">
                 <input type="checkbox" name="complete">
                 <span class="todo__title"><%= title %></span>
+<<<<<<< HEAD:public/index.html
+                <span class="todo__description"><%= description %></span>
+                <span class="todo__time"><%= time %></span>
+=======
                 <span class="todo__discription"><%= discription %></span>
                 <span class="todo__time"><%= minutes %>:<%= seconds %></span>
                 <button class="todo__btn">Start</button>
+>>>>>>> fd905a0eed9d68c098fe15c425cc8af933468c2f:index.html
         </div>
     </script>
 </body>
