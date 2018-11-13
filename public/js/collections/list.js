@@ -11,10 +11,12 @@ define([
     fetchEntries: function() {
       var self = this;
       var entries = JSON.parse(window.localStorage.getItem('Backbone-Todo'));
-      entries.forEach(function(entry) {
-        var todoEntry = new Todo(entry);
-        self.add(todoEntry);
-      });
+      if(entries !== null) {
+        entries.forEach(function(entry) {
+          var todoEntry = new Todo(entry);
+          self.add(todoEntry);
+        });
+      }
     },
     saveEntry: function() {
       localStorage.setItem('Backbone-Todo', JSON.stringify(this.models));
