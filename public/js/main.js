@@ -10,9 +10,9 @@ require.config({
     }
   },
   paths: {
-    jquery: '../dependencies/jquery-3.3.1',
-    underscore: '../dependencies/underscore',
-    backbone: '../dependencies/backbone'
+    jquery: 'dependencies/jquery-3.3.1',
+    underscore: 'dependencies/underscore',
+    backbone: 'dependencies/backbone'
   }
 });
 
