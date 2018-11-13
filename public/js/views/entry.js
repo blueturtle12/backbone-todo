@@ -25,41 +25,29 @@ define(["jquery", "underscore", "backbone", "models/todo"], function(
 			var time = this.model.get("time") + 1;
 			var buttonStatus = this.model.get("buttonStatus");
 			var self = this;
-			// var timerLoop = setInterval(
-			// 	(function x() {
-			// 		time--;
-			// 		self.model.set({ minutes: Math.floor(time / 60) });
-			// 		self.model.set({ seconds: time % 60 });
-			// 		self.render();
-			// 		if (time === 0) {
-			// 			clearInterval(timerLoop);
-			// 		}
-			// 		return x;
-			// 	})(),
-			// 	1000
-			// );
 
 			function x() {
 				time--;
 				self.model.set({ minutes: Math.floor(time / 60) });
 				self.model.set({ seconds: time % 60 });
+				self.model.set({ time: time});
 				self.render();
 				if (time === 0) {
 					clearInterval(self.timerLoop);
+					self.$(".todo__btn").attr("disabled", "disabled");
 				}
+				return time;
 			}
-			//var timerLoop;
-			if (buttonStatus === "start") {
+
+			if (buttonStatus === "start" || buttonStatus === "resume" ) {
 				this.model.set({ buttonStatus: "pause" });
 				x();
 				this.timerLoop = setInterval(x, 1000);
-				console.log(this.timerLoop);
-			} 
-			else if (buttonStatus === "pause") {
-				console.log(buttonStatus);
+			} else if (buttonStatus === "pause") {
 				clearInterval(this.timerLoop);
 				this.model.set({ buttonStatus: "resume" });
-			}
+				this.render();
+			} 
 		},
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
