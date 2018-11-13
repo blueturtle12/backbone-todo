@@ -1,12 +1,19 @@
 define([
   'underscore',
   'backbone',
-  'models/todo',
-  'backboneLocalstorage'
+  'models/todo'
+  //'backboneLocalstorage'
 ], function(_, Backbone, Todo, Store) {
   var List = Backbone.Collection.extend({
     model: Todo,
-    localStorage: new Store('Backbone-Todo')
+    //url: 'todos',
+    initialize: function() {
+      
+    },
+
+    saveEntry: function() {
+      localStorage.setItem("Backbone-Todo", JSON.stringify(this.models));
+    }
   });
 
   return List;

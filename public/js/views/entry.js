@@ -8,7 +8,6 @@ define(['jquery', 'underscore', 'backbone', 'models/todo'], function(
     model: Todo,
     initialize: function() {
       this.template = _.template($('.todoTemplate').html());
-      console.log(this.model.get('time'));
       var timeToSeconds = this.model.get('time') * 60;
       this.model.set({ time: timeToSeconds });
       this.model.set({ minutes: Math.floor(timeToSeconds / 60) });

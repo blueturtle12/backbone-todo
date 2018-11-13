@@ -8,7 +8,8 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       minutes: '',
       seconds: '',
       buttonStatus: 'start'
-    }
+    },
+    url: 'todo'
   });
 
   return Todo;

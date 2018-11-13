@@ -10,7 +10,10 @@ define([
     collection: new List(),
     el: $('.main__container'),
     initialize: function() {
-      this.listenTo(this.collection, 'add', this.render);
+      this.listenTo(this.collection, 'add', function() {
+        this.render;
+        this.collection.saveEntry();
+      });
       this.collection.fetch();
       this.collection.models.forEach(function(model) {
         this.$('.main__display').append(
@@ -31,15 +34,12 @@ define([
         time: toDoTime
       });
       this.collection.add(item);
-      item.save();
       this.$('.main__display').append(
         new EntryView({ model: item }).render().el
       );
-      console.log(this.collection.toArray());
       $('.main__input').val('');
       $('.main__description').val('');
       $('.main__time').val('');
-      var i = 0;
     },
     render: function() {}
   });
