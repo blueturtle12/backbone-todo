@@ -14,7 +14,7 @@ define([
         this.render;
         this.collection.saveEntry();
       });
-      this.collection.fetch();
+      this.collection.fetchEntries();
       this.collection.models.forEach(function(model) {
         this.$('.main__display').append(
           new EntryView({ model: model }).render().el
@@ -37,6 +37,7 @@ define([
       this.$('.main__display').append(
         new EntryView({ model: item }).render().el
       );
+      console.log(this.collection);
       $('.main__input').val('');
       $('.main__description').val('');
       $('.main__time').val('');

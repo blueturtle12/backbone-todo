@@ -7,12 +7,12 @@ require.config({
     backbone: {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
-    },
+    }
   },
   paths: {
     jquery: '../dependencies/jquery-3.3.1',
     underscore: '../dependencies/underscore',
-    backbone: '../dependencies/backbone',
+    backbone: '../dependencies/backbone'
   }
 });
 

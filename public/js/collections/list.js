@@ -2,17 +2,22 @@ define([
   'underscore',
   'backbone',
   'models/todo'
-  //'backboneLocalstorage'
 ], function(_, Backbone, Todo, Store) {
   var List = Backbone.Collection.extend({
     model: Todo,
     //url: 'todos',
-    initialize: function() {
-      
-    },
+    initialize: function() {},
 
+    fetchEntries: function() {
+      var self = this;
+      var entries = JSON.parse(window.localStorage.getItem('Backbone-Todo'));
+      entries.forEach(function(entry) {
+        var todoEntry = new Todo(entry);
+        self.add(todoEntry);
+      });
+    },
     saveEntry: function() {
-      localStorage.setItem("Backbone-Todo", JSON.stringify(this.models));
+      localStorage.setItem('Backbone-Todo', JSON.stringify(this.models));
     }
   });
 

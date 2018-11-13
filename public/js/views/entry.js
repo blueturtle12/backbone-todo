@@ -9,7 +9,6 @@ define(['jquery', 'underscore', 'backbone', 'models/todo'], function(
     initialize: function() {
       this.template = _.template($('.todoTemplate').html());
       var timeToSeconds = this.model.get('time') * 60;
-      this.model.set({ time: timeToSeconds });
       this.model.set({ minutes: Math.floor(timeToSeconds / 60) });
       this.model.set({ seconds: timeToSeconds % 60 });
     },
@@ -21,7 +20,7 @@ define(['jquery', 'underscore', 'backbone', 'models/todo'], function(
     },
 
     onClick: function() {
-      var time = this.model.get('time') + 1;
+      var time = this.model.get('time') * 60 + 1;
       var buttonStatus = this.model.get('buttonStatus');
       var self = this;
 
@@ -29,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'models/todo'], function(
         time--;
         self.model.set({ minutes: Math.floor(time / 60) });
         self.model.set({ seconds: time % 60 });
-        self.model.set({ time: time });
+        self.model.set({ time: time / 60 });
         self.render();
         if (time === 0) {
           clearInterval(self.timerLoop);
